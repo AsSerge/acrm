@@ -1,0 +1,145 @@
+/* ============================================
+   СТИЛИ МОДУЛЯ USERS
+   ============================================ */
+
+.module-users .module-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.module-users .module-header h2 {
+	font-size: 22px;
+	font-weight: 600;
+	color: var(--admin-text-primary);
+	margin: 0;
+}
+
+/* ============================================
+   ФИЛЬТРЫ (горизонтальное расположение)
+   ============================================ */
+.filters-bar {
+	background: var(--admin-bg-card);
+	border: 1px solid var(--admin-border);
+	border-radius: 8px;
+	padding: 16px;
+	margin-bottom: 20px;
+}
+
+.filters-form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	align-items: flex-end;
+}
+
+.filter-group {
+	flex: 1;
+	min-width: 150px;
+}
+
+.filter-group .admin-form-control {
+	width: 100%;
+	height: 40px;
+	box-sizing: border-box;
+}
+
+.filter-actions {
+	display: flex;
+	gap: 8px;
+	align-items: stretch;
+	flex-shrink: 0;
+}
+
+.btn-filter {
+	height: 40px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 20px;
+	font-size: 14px;
+	line-height: 1;
+	min-width: 80px;
+	box-sizing: border-box;
+}
+
+/* ============================================
+   ТАБЛИЦА
+   ============================================ */
+.action-buttons {
+	display: flex;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.status-active {
+	color: var(--admin-success);
+}
+
+.status-inactive {
+	color: var(--admin-danger);
+}
+
+.btn-admin-warning {
+	background: var(--admin-warning);
+	color: #fff;
+}
+
+.btn-admin-warning:hover {
+	opacity: 0.85;
+}
+
+/* ============================================
+   ФОРМЫ
+   ============================================ */
+.admin-form .row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -8px;
+}
+
+.admin-form .row [class*="col-"] {
+	padding: 0 8px;
+}
+
+.admin-form .row {
+	margin-bottom: 8px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+	.module-users .module-header {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 12px;
+	}
+
+	.module-users .module-header .btn-admin {
+		text-align: center;
+	}
+
+	.filters-form {
+		flex-direction: column;
+	}
+
+	.filter-group {
+		min-width: 100%;
+	}
+
+	.filter-actions {
+		width: 100%;
+	}
+
+	.btn-filter {
+		flex: 1;
+	}
+
+	.table-responsive {
+		overflow-x: auto;
+	}
+}

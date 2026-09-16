@@ -1,0 +1,282 @@
+/* ============================================
+   СТИЛИ МОДУЛЯ HOME (ГЛАВНАЯ СТРАНИЦА)
+   ============================================ */
+
+.home-module {
+	padding: 20px 0;
+}
+
+/* ============================================
+   HERO-СЕКЦИЯ
+   ============================================ */
+.home-hero {
+	background: linear-gradient(135deg, #1a1a2e 0%, #2c3e50 100%);
+	border-radius: 12px;
+	padding: 60px 40px;
+	margin-bottom: 40px;
+	color: #ffffff;
+	text-align: center;
+}
+
+.home-hero-content {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.home-title {
+	font-size: 42px;
+	font-weight: 700;
+	margin: 0 0 15px 0;
+	letter-spacing: 1px;
+}
+
+.home-subtitle {
+	font-size: 20px;
+	font-weight: 400;
+	opacity: 0.9;
+	margin: 0 0 20px 0;
+}
+
+.home-description {
+	font-size: 16px;
+	opacity: 0.8;
+	line-height: 1.8;
+	margin: 0 0 30px 0;
+}
+
+.home-actions {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	flex-wrap: wrap;
+}
+
+.home-actions .btn {
+	padding: 12px 30px;
+	font-size: 16px;
+}
+
+.home-actions .btn-primary {
+	background: #64b5f6;
+	color: #1a1a2e;
+}
+
+.home-actions .btn-primary:hover {
+	background: #42a5f5;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 20px rgba(100, 181, 246, 0.4);
+}
+
+.home-actions .btn-secondary {
+	background: rgba(255, 255, 255, 0.15);
+	color: #ffffff;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.home-actions .btn-secondary:hover {
+	background: rgba(255, 255, 255, 0.25);
+	transform: translateY(-2px);
+}
+
+/* ============================================
+   КАРТОЧКИ ФУНКЦИОНАЛА
+   ============================================ */
+.home-features {
+	margin-bottom: 40px;
+}
+
+.feature-card {
+	background: #f8f9fa;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 25px 20px;
+	text-align: center;
+	transition: all 0.3s ease;
+	height: 100%;
+}
+
+.feature-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+	border-color: #64b5f6;
+}
+
+.feature-icon {
+	font-size: 36px;
+	margin-bottom: 15px;
+	display: block;
+}
+
+.feature-card h3 {
+	font-size: 18px;
+	font-weight: 600;
+	color: #1a1a2e;
+	margin: 0 0 10px 0;
+}
+
+.feature-card p {
+	font-size: 14px;
+	color: #6c757d;
+	line-height: 1.6;
+	margin: 0;
+}
+
+/* ============================================
+   СПИСОК МОДУЛЕЙ
+   ============================================ */
+.home-modules {
+	margin-bottom: 40px;
+}
+
+.home-modules h2 {
+	font-size: 24px;
+	font-weight: 600;
+	color: #1a1a2e;
+	margin: 0 0 20px 0;
+}
+
+.modules-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: 15px;
+}
+
+.module-link {
+	text-decoration: none;
+}
+
+.module-link-card {
+	background: #f8f9fa;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 20px;
+	text-align: center;
+	transition: all 0.3s ease;
+}
+
+.module-link-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+	border-color: #64b5f6;
+}
+
+.module-link-icon {
+	font-size: 28px;
+	display: block;
+	margin-bottom: 8px;
+}
+
+.module-link-name {
+	display: block;
+	font-weight: 600;
+	color: #1a1a2e;
+	font-size: 16px;
+}
+
+.module-link-version {
+	display: block;
+	font-size: 12px;
+	color: #6c757d;
+	margin-top: 4px;
+}
+
+/* ============================================
+   ТЕХНИЧЕСКАЯ ИНФОРМАЦИЯ
+   ============================================ */
+.home-tech {
+	background: #f8f9fa;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 25px;
+}
+
+.home-tech h3 {
+	font-size: 18px;
+	font-weight: 600;
+	color: #1a1a2e;
+	margin: 0 0 15px 0;
+}
+
+.tech-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 12px;
+}
+
+.tech-item {
+	display: flex;
+	justify-content: space-between;
+	padding: 8px 12px;
+	background: #ffffff;
+	border-radius: 4px;
+	border: 1px solid #e8e8e8;
+}
+
+.tech-label {
+	font-weight: 500;
+	color: #6c757d;
+	font-size: 13px;
+}
+
+.tech-value {
+	font-weight: 500;
+	color: #1a1a2e;
+	font-size: 13px;
+}
+
+.tech-value.status-online {
+	color: #28a745;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+	.home-hero {
+		padding: 40px 20px;
+	}
+
+	.home-title {
+		font-size: 28px;
+	}
+
+	.home-subtitle {
+		font-size: 16px;
+	}
+
+	.home-actions {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.home-actions .btn {
+		width: 100%;
+		max-width: 280px;
+	}
+
+	.modules-grid {
+		grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	}
+
+	.tech-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 480px) {
+	.home-hero {
+		padding: 30px 15px;
+	}
+
+	.home-title {
+		font-size: 24px;
+	}
+
+	.feature-card {
+		padding: 20px 15px;
+	}
+
+	.modules-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}

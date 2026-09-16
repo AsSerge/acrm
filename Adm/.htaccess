@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Запрет доступа к системным папкам (кроме api - он доступен для AJAX)
+RewriteRule ^(assets|layout|modules)/ - [F,L]
+
+# Если файл или папка существуют - не обрабатываем
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Все остальные запросы направляем на index.php
+RewriteRule ^(.*)$ index.php?route=$1 [QSA,L]

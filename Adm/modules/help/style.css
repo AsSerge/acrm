@@ -1,0 +1,227 @@
+/* ============================================
+   СТИЛИ МОДУЛЯ HELP
+   ============================================ */
+
+.module-help .module-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.module-help .module-header h2 {
+	font-size: 22px;
+	font-weight: 600;
+	color: var(--admin-text-primary);
+	margin: 0;
+}
+
+/* Вкладки */
+.help-tabs {
+	display: flex;
+	gap: 4px;
+	border-bottom: 2px solid var(--admin-border);
+	margin-bottom: 24px;
+	flex-wrap: wrap;
+}
+
+.help-tab {
+	padding: 10px 20px;
+	color: var(--admin-text-secondary);
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 500;
+	border-bottom: 2px solid transparent;
+	margin-bottom: -2px;
+	transition: all 0.2s ease;
+	border-radius: 4px 4px 0 0;
+}
+
+.help-tab:hover {
+	color: var(--admin-text-primary);
+	background: var(--admin-bg-hover);
+}
+
+.help-tab.active {
+	color: var(--admin-accent);
+	border-bottom-color: var(--admin-accent);
+	background: transparent;
+}
+
+/* Контент */
+.help-content {
+	padding: 30px;
+	line-height: 1.7;
+}
+
+.help-content h3 {
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--admin-text-primary);
+	margin: 24px 0 12px 0;
+	padding-bottom: 8px;
+	border-bottom: 1px solid var(--admin-border);
+}
+
+.help-content h3:first-child {
+	margin-top: 0;
+}
+
+.help-content h4 {
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--admin-text-primary);
+	margin: 16px 0 8px 0;
+}
+
+.help-content p {
+	font-size: 14px;
+	color: var(--admin-text-secondary);
+	margin: 0 0 12px 0;
+}
+
+.help-content ul,
+.help-content ol {
+	margin: 0 0 16px 0;
+	padding-left: 24px;
+	color: var(--admin-text-secondary);
+	font-size: 14px;
+}
+
+.help-content li {
+	padding: 4px 0;
+}
+
+.help-content code {
+	background: var(--admin-bg-hover);
+	padding: 2px 6px;
+	border-radius: 3px;
+	font-family: "Consolas", "Courier New", monospace;
+	font-size: 13px;
+	color: var(--admin-accent);
+}
+
+.help-content pre {
+	background: var(--admin-bg-primary);
+	border: 1px solid var(--admin-border);
+	border-radius: 4px;
+	padding: 16px;
+	overflow-x: auto;
+	font-family: "Consolas", "Courier New", monospace;
+	font-size: 13px;
+	color: var(--admin-text-primary);
+	margin: 0 0 16px 0;
+}
+
+.help-content .note {
+	background: rgba(100, 181, 246, 0.1);
+	border-left: 4px solid var(--admin-accent);
+	padding: 12px 16px;
+	border-radius: 4px;
+	margin: 16px 0;
+	font-size: 14px;
+	color: var(--admin-text-secondary);
+}
+
+.help-content .warning {
+	background: rgba(255, 167, 38, 0.1);
+	border-left: 4px solid var(--admin-warning);
+	padding: 12px 16px;
+	border-radius: 4px;
+	margin: 16px 0;
+	font-size: 14px;
+	color: var(--admin-text-secondary);
+}
+
+.help-content a {
+	color: var(--admin-accent);
+	text-decoration: none;
+}
+
+.help-content a:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+	.help-tabs {
+		flex-direction: column;
+		border-bottom: none;
+	}
+	.help-tab {
+		border-bottom: 1px solid var(--admin-border);
+		border-left: 3px solid transparent;
+		margin-bottom: 0;
+		border-radius: 0;
+	}
+	.help-tab.active {
+		border-left-color: var(--admin-accent);
+		border-bottom-color: var(--admin-border);
+	}
+	.help-content {
+		padding: 20px;
+	}
+}
+
+/* ============================================
+   ТАБЛИЦЫ В СПРАВКЕ
+   ============================================ */
+
+.help-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 16px 0;
+	font-size: 13px;
+}
+
+.help-table th {
+	background: var(--admin-bg-primary);
+	color: var(--admin-text-muted);
+	padding: 10px 12px;
+	text-align: left;
+	font-weight: 600;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	border-bottom: 1px solid var(--admin-border);
+}
+
+.help-table td {
+	padding: 10px 12px;
+	border-bottom: 1px solid var(--admin-border-light);
+	color: var(--admin-text-secondary);
+	vertical-align: top;
+}
+
+.help-table tr:hover td {
+	background: var(--admin-bg-hover);
+}
+
+.help-table .group-title {
+	background: var(--admin-bg-secondary);
+	color: var(--admin-accent);
+	font-weight: 600;
+	font-size: 13px;
+	padding: 10px 12px;
+	text-align: left;
+}
+
+.help-table code {
+	background: var(--admin-bg-primary);
+	padding: 2px 6px;
+	border-radius: 3px;
+	font-family: "Consolas", "Courier New", monospace;
+	font-size: 12px;
+	color: var(--admin-accent);
+}
+
+@media (max-width: 768px) {
+	.help-table {
+		font-size: 12px;
+	}
+	.help-table th,
+	.help-table td {
+		padding: 6px 8px;
+	}
+}

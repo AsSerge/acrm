@@ -1,0 +1,178 @@
+/* ============================================
+   СТИЛИ БЛОКА "ИЗОБРАЖЕНИЕ"
+   Блок отвечает ТОЛЬКО за своё содержимое.
+   Размещение — через сетку в родителе.
+   ============================================ */
+
+.image-block {
+	margin: 0;
+	padding: 0;
+	display: block;
+	width: 100%;
+}
+
+/* ============================================
+   ССЫЛКА-ОБЁРТКА
+   ============================================ */
+
+.image-block__link {
+	display: block;
+	text-decoration: none;
+	width: 100%;
+}
+
+/* ============================================
+   ИЗОБРАЖЕНИЕ
+   ============================================ */
+
+.image-block__image {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	min-height: 50px;
+	border-radius: 8px;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+	transition:
+		transform 0.3s ease,
+		box-shadow 0.3s ease;
+}
+
+/* Эффект при наведении */
+.image-block__link:hover .image-block__image {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Курсор для картинок с lightbox */
+.image-block__image[data-lightbox="true"] {
+	cursor: zoom-in;
+}
+
+.image-block__image[data-lightbox="true"]:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================================
+   ПОДПИСЬ
+   ============================================ */
+
+.image-block__caption {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #6c757d;
+	font-style: italic;
+	line-height: 1.5;
+	text-align: center;
+}
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+
+.image-lightbox {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.92);
+	z-index: 99999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 20px;
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 0.3s ease,
+		visibility 0.3s ease;
+	cursor: zoom-out;
+}
+
+.image-lightbox.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.image-lightbox__image {
+	max-width: 95%;
+	max-height: 90vh;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+	border-radius: 4px;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+	cursor: default;
+	transform: scale(0.95);
+	transition: transform 0.3s ease;
+}
+
+.image-lightbox.active .image-lightbox__image {
+	transform: scale(1);
+}
+
+.image-lightbox__close {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background: rgba(255, 255, 255, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	color: #fff;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	font-size: 24px;
+	line-height: 1;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s ease;
+	z-index: 2;
+}
+
+.image-lightbox__close:hover {
+	background: rgba(255, 255, 255, 0.25);
+	transform: rotate(90deg);
+}
+
+.image-lightbox__caption {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	right: 20px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.85);
+	font-size: 14px;
+	font-style: italic;
+	padding: 0 20px;
+	z-index: 2;
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+
+@media (max-width: 768px) {
+	.image-block__caption {
+		font-size: 13px;
+	}
+
+	.image-lightbox {
+		padding: 20px 10px;
+	}
+
+	.image-lightbox__close {
+		top: 10px;
+		right: 10px;
+		width: 36px;
+		height: 36px;
+		font-size: 20px;
+	}
+
+	.image-lightbox__caption {
+		font-size: 13px;
+	}
+}

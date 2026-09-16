@@ -1,0 +1,27 @@
+.maintenance-content {
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 60px 40px;
+}
+
+.maintenance-icon {
+	font-size: 80px;
+	margin-bottom: 20px;
+}
+
+.maintenance-content h1 {
+	font-size: 32px;
+	font-weight: 600;
+	margin: 0 0 16px 0;
+	letter-spacing: 1px;
+	color: #ffffff;
+}
+
+.maintenance-content p {
+	font-size: 16px;
+	opacity: 0.8;
+	line-height: 1.6;
+	margin: 0 0 8px 0;
+	color: #ffffff;
+}

@@ -1,0 +1,27 @@
+# ============================================
+# ЗАЩИТА ПАПКИ /uploads/
+# ============================================
+
+# Запрещаем выполнение PHP, HTML и других скриптов
+<FilesMatch "\.(php|php3|php4|php5|php7|phtml|pl|py|jsp|asp|htm|html|shtml|sh|cgi)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Запрещаем доступ к .htaccess и другим скрытым файлам
+<FilesMatch "^\.">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Разрешаем только изображения
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Отключаем индексацию папки
+Options -Indexes
+
+# Отключаем выполнение PHP (на случай, если .htaccess не сработает)
+php_flag engine off

@@ -1,0 +1,565 @@
+/* ============================================
+   СТИЛИ МОДУЛЯ GALLERIES
+   ============================================ */
+
+.module-galleries .module-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.module-galleries .module-header h2 {
+	font-size: 22px;
+	font-weight: 600;
+	color: var(--admin-text-primary);
+	margin: 0;
+}
+
+/* ============================================
+   СЕТКА ГАЛЕРЕЙ
+   ============================================ */
+
+.galleries-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	gap: 20px;
+}
+
+/* ============================================
+   КАРТОЧКА ГАЛЕРЕИ
+   ============================================ */
+
+.gallery-card {
+	background: var(--admin-bg-primary);
+	border: 1px solid var(--admin-border);
+	border-radius: 8px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	transition: all 0.2s ease;
+}
+
+.gallery-card:hover {
+	border-color: var(--admin-accent);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-card-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.gallery-card-header h3 {
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--admin-text-primary);
+	margin: 0;
+	word-break: break-word;
+}
+
+.gallery-status {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 10px;
+	font-size: 11px;
+	font-weight: 600;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.gallery-status-inactive {
+	background: rgba(239, 83, 80, 0.2);
+	color: var(--admin-danger);
+}
+
+/* ============================================
+   ИНФОРМАЦИЯ О ГАЛЕРЕЕ
+   ============================================ */
+
+.gallery-card-info {
+	flex: 1;
+}
+
+.gallery-card-info p {
+	font-size: 13px;
+	color: var(--admin-text-secondary);
+	margin: 0 0 12px 0;
+	line-height: 1.5;
+}
+
+.gallery-meta {
+	display: flex;
+	gap: 16px;
+	font-size: 12px;
+	color: var(--admin-text-muted);
+	flex-wrap: wrap;
+}
+
+.gallery-meta span {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+/* ============================================
+   ДЕЙСТВИЯ
+   ============================================ */
+
+.gallery-card-actions {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.gallery-card-actions .btn-admin-sm {
+	flex: 1;
+	text-align: center;
+	justify-content: center;
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+
+@media (max-width: 768px) {
+	.module-galleries .module-header {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.galleries-grid {
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
+
+	.gallery-card {
+		padding: 16px;
+	}
+}
+
+/* ============================================
+   ЗОНА ЗАГРУЗКИ ФОТО
+   ============================================ */
+
+.gallery-dropzone {
+	border: 2px dashed var(--admin-border);
+	border-radius: 8px;
+	padding: 30px 20px;
+	text-align: center;
+	margin-bottom: 20px;
+	transition: all 0.3s ease;
+	background: var(--admin-bg-primary);
+	cursor: pointer;
+}
+
+.gallery-dropzone:hover {
+	border-color: var(--admin-accent);
+	background: rgba(100, 181, 246, 0.05);
+}
+
+.gallery-dropzone.dragover {
+	border-color: var(--admin-accent);
+	background: rgba(100, 181, 246, 0.1);
+	transform: scale(1.01);
+}
+
+.gallery-dropzone p {
+	margin: 12px 0 4px 0;
+	color: var(--admin-text-secondary);
+	font-size: 14px;
+}
+
+.gallery-dropzone small {
+	color: var(--admin-text-muted);
+	font-size: 12px;
+}
+
+/* ============================================
+   СЕТКА ИЗОБРАЖЕНИЙ
+   ============================================ */
+
+.gallery-images-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: 12px;
+}
+
+.gallery-empty {
+	grid-column: 1 / -1;
+	text-align: center;
+	color: var(--admin-text-muted);
+	padding: 40px 0;
+	font-size: 14px;
+}
+
+.gallery-image-item {
+	background: var(--admin-bg-primary);
+	border: 1px solid var(--admin-border);
+	border-radius: 8px;
+	overflow: hidden;
+	position: relative;
+	transition: all 0.2s ease;
+}
+
+.gallery-image-item:hover {
+	border-color: var(--admin-accent);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-image-preview {
+	width: 100%;
+	height: 140px;
+	overflow: hidden;
+	background: var(--admin-bg-secondary);
+}
+
+.gallery-image-preview img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.gallery-image-actions {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	display: flex;
+	gap: 4px;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+.gallery-image-item:hover .gallery-image-actions {
+	opacity: 1;
+}
+
+.gallery-image-btn {
+	background: rgba(0, 0, 0, 0.7);
+	border: none;
+	border-radius: 4px;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	padding: 0;
+	transition: all 0.2s ease;
+}
+
+.gallery-image-btn:hover {
+	transform: scale(1.1);
+}
+
+.gallery-image-btn.edit:hover {
+	background: var(--admin-accent);
+}
+
+.gallery-image-btn.delete:hover {
+	background: var(--admin-danger);
+}
+
+.gallery-image-caption {
+	padding: 8px 10px;
+	font-size: 12px;
+	color: var(--admin-text-secondary);
+	text-align: center;
+	background: var(--admin-bg-secondary);
+	border-top: 1px solid var(--admin-border);
+	word-break: break-word;
+}
+
+/* ============================================
+   МОДАЛЬНОЕ ОКНО
+   ============================================ */
+
+.gallery-modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 9999;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}
+
+.gallery-modal.active {
+	display: flex;
+}
+
+.gallery-modal-content {
+	background: var(--admin-bg-card);
+	border: 1px solid var(--admin-border);
+	border-radius: 8px;
+	padding: 24px;
+	max-width: 500px;
+	width: 100%;
+	position: relative;
+}
+
+.gallery-modal-content h3 {
+	margin: 0 0 20px 0;
+	color: var(--admin-text-primary);
+	font-size: 18px;
+}
+
+.gallery-modal-close {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	background: var(--admin-bg-hover);
+	border: none;
+	color: var(--admin-text-primary);
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background 0.2s ease;
+}
+
+.gallery-modal-close:hover {
+	background: var(--admin-danger);
+	color: #fff;
+}
+
+.gallery-modal-actions {
+	display: flex;
+	gap: 12px;
+	justify-content: flex-end;
+	margin-top: 20px;
+	padding-top: 16px;
+	border-top: 1px solid var(--admin-border);
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+
+@media (max-width: 768px) {
+	.gallery-images-grid {
+		grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+		gap: 8px;
+	}
+
+	.gallery-image-preview {
+		height: 110px;
+	}
+
+	.gallery-image-actions {
+		opacity: 1;
+	}
+}
+
+/* ============================================
+   ПРОГРЕСС ЗАГРУЗКИ
+   ============================================ */
+
+.gallery-upload-progress {
+	background: var(--admin-bg-card);
+	border: 1px solid var(--admin-border);
+	border-radius: 8px;
+	padding: 16px 20px;
+	margin-bottom: 20px;
+}
+
+.progress-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+.progress-text {
+	color: var(--admin-text-primary);
+	font-weight: 500;
+}
+
+.progress-counter {
+	color: var(--admin-text-muted);
+	font-size: 13px;
+}
+
+.progress-bar {
+	width: 100%;
+	height: 8px;
+	background: var(--admin-bg-primary);
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.progress-fill {
+	height: 100%;
+	background: linear-gradient(90deg, var(--admin-accent), var(--admin-success));
+	border-radius: 4px;
+	transition: width 0.3s ease;
+}
+
+/* ============================================
+   СЕТКА ЗАГРУЖАЕМЫХ ФОТО
+   ============================================ */
+
+.gallery-uploading-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	gap: 12px;
+	margin-bottom: 20px;
+}
+
+.gallery-uploading-grid:empty {
+	display: none;
+}
+
+.uploading-item {
+	position: relative;
+	background: var(--admin-bg-primary);
+	border: 2px solid var(--admin-border);
+	border-radius: 8px;
+	overflow: hidden;
+	height: 150px;
+	transition: all 0.3s ease;
+}
+
+.uploading-item.uploading-success {
+	border-color: var(--admin-success);
+}
+
+.uploading-item.uploading-error {
+	border-color: var(--admin-danger);
+}
+
+.uploading-preview {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.uploading-preview img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.uploading-icon {
+	font-size: 48px;
+	color: var(--admin-text-muted);
+}
+
+.uploading-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 0.3s ease;
+}
+
+.uploading-item.uploading-success .uploading-overlay,
+.uploading-item.uploading-error .uploading-overlay {
+	opacity: 0;
+}
+
+.uploading-item.uploading-success:hover .uploading-overlay,
+.uploading-item.uploading-error:hover .uploading-overlay {
+	opacity: 1;
+}
+
+.uploading-status {
+	font-size: 24px;
+	font-weight: 600;
+	color: #fff;
+	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Анимация загрузки */
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+}
+
+.uploading-item:not(.uploading-success):not(.uploading-error) {
+	animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   DRAG-AND-DROP СОРТИРОВКА
+   ============================================ */
+
+/* Курсор захвата для превью */
+.gallery-image-preview {
+	cursor: grab;
+	position: relative;
+}
+
+.gallery-image-preview:active {
+	cursor: grabbing;
+}
+
+/* Иконка «⠿» при наведении */
+.gallery-image-item:hover .gallery-image-preview::before {
+	content: "⠿";
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	width: 24px;
+	height: 24px;
+	background: rgba(0, 0, 0, 0.7);
+	color: #fff;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	z-index: 2;
+	opacity: 0.8;
+	pointer-events: none;
+}
+
+/* Классы Sortable */
+.sortable-ghost {
+	opacity: 0.4;
+	background: var(--admin-bg-hover);
+}
+
+.sortable-chosen {
+	background: var(--admin-bg-hover);
+	border: 1px solid var(--admin-accent);
+}
+
+.sortable-drag {
+	background: var(--admin-bg-card);
+	border: 1px solid var(--admin-accent);
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+	opacity: 0.9;
+}

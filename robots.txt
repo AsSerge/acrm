@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /Adm/
+Disallow: /base/
+Disallow: /core/
+Disallow: /storage/
+Disallow: /vendor/
+Disallow: /api/
+
+Allow: /
+Allow: /assets/
+
+Sitemap: http://acrm/sitemap.xml
+
+# Сгенерировано: 2026-09-15 08:10:38

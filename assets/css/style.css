@@ -1,0 +1,834 @@
+/* ============================================
+   ГЛОБАЛЬНЫЕ СТИЛИ САЙТА
+   Шрифт: FuturaNew (Book и Demi)
+   ============================================ */
+
+/* ============================================
+   ПЕРЕМЕННЫЕ ДЛЯ НАСТРОЙКИ
+   ============================================ */
+:root {
+	/* Цветовая схема */
+	--color-primary: #1a1a2e;
+	--color-primary-light: #2c3e50;
+	--color-accent: #64b5f6;
+	--color-text: #2c3e50;
+	--color-text-light: #6c757d;
+	--color-white: #ffffff;
+	--color-bg: #f8f9fa;
+	--color-border: #e0e0e0;
+
+	/* Ширина контейнера */
+	--container-max-width: 1200px;
+	--container-padding: 20px;
+
+	/* Шапка */
+	--header-bg: #1a1a2e;
+	--header-text: #ffffff;
+	--header-accent: #64b5f6;
+
+	/* Подвал */
+	--footer-bg: #16213e;
+	--footer-text: #a0a0a0;
+
+	/* Шрифты */
+	--font-family: "FuturaNew", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+	--font-size-base: 16px;
+	--line-height-base: 1.6;
+
+	/* Анимации */
+	--transition-speed: 0.3s;
+}
+
+/* ============================================
+   ПОДКЛЮЧЕНИЕ ШРИФТОВ
+   ============================================ */
+
+/* FuturaNew Book (обычный) */
+@font-face {
+	font-family: "FuturaNew";
+	src:
+		url("/assets/fonts/FuturaNewBook-Reg.woff2") format("woff2"),
+		url("/assets/fonts/FuturaNewBook-Reg.woff") format("woff"),
+		url("/assets/fonts/FuturaNewBook-Reg.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* FuturaNew Demi (полужирный) */
+@font-face {
+	font-family: "FuturaNew";
+	src:
+		url("/assets/fonts/FuturaNewDemi-Reg.woff2") format("woff2"),
+		url("/assets/fonts/FuturaNewDemi-Reg.woff") format("woff"),
+		url("/assets/fonts/FuturaNewDemi-Reg.ttf") format("truetype");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* ============================================
+   СБРОС СТИЛЕЙ
+   ============================================ */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: var(--font-size-base);
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--font-family);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
+	color: var(--color-text);
+	background: var(--color-white);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Жирный текст */
+strong,
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 600;
+}
+
+/* ============================================
+   КОНТЕЙНЕР (гибкая настройка ширины)
+   ============================================ */
+.container {
+	width: 100%;
+	max-width: var(--container-max-width);
+	margin: 0 auto;
+	padding: 0 var(--container-padding);
+}
+
+/* Альтернативный контейнер - на всю ширину */
+.container-fluid {
+	width: 100%;
+	padding: 0 var(--container-padding);
+	margin: 0 auto;
+}
+
+/* ============================================
+   ШАПКА САЙТА
+   ============================================ */
+.site-header {
+	background: var(--header-bg);
+	color: var(--header-text);
+	padding: 15px 0;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
+
+.header-inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+.logo h1 {
+	font-size: 24px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	margin: 0;
+}
+
+.logo a {
+	color: var(--header-text);
+	text-decoration: none;
+}
+
+.logo a:hover {
+	color: var(--header-accent);
+}
+
+/* ============================================
+   ГЛАВНОЕ МЕНЮ (десктопная версия)
+   ============================================ */
+.main-nav {
+	display: flex;
+	align-items: center;
+}
+
+.main-nav ul {
+	display: flex;
+	list-style: none;
+	gap: 25px;
+	margin: 0;
+	padding: 0;
+}
+
+.main-nav ul ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	min-width: 200px;
+	background: var(--header-bg);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 4px;
+	padding: 8px 0;
+	flex-direction: column;
+	gap: 0;
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.main-nav li {
+	position: relative;
+}
+
+.main-nav li:hover > ul {
+	display: flex;
+}
+
+.main-nav ul ul li {
+	width: 100%;
+}
+
+.main-nav ul ul a {
+	display: block;
+	padding: 8px 16px;
+	border-bottom: none !important;
+	font-size: 14px;
+}
+
+.main-nav ul ul a:hover {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+/* Третий уровень (под-подменю) */
+.main-nav ul ul ul {
+	left: 100%;
+	top: 0;
+}
+
+.main-nav a {
+	color: var(--header-text);
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: 400;
+	transition: color var(--transition-speed) ease;
+	padding: 5px 0;
+	border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover {
+	color: var(--header-accent);
+	border-bottom-color: var(--header-accent);
+}
+
+/* ============================================
+   СТРЕЛКА ДЛЯ ПУНКТОВ С ПОДМЕНЮ
+   ============================================ */
+
+.menu-arrow {
+	display: inline-block;
+	font-size: 10px;
+	margin-left: 4px;
+	transition: transform 0.3s ease;
+}
+
+/* На десктопе — при наведении */
+@media (min-width: 769px) {
+	.main-nav li.has-children:hover .menu-arrow {
+		transform: rotate(180deg);
+	}
+}
+
+/* На мобильных — при открытом подменю */
+@media (max-width: 768px) {
+	.menu-arrow {
+		font-size: 14px;
+		float: right;
+		margin-left: 8px;
+	}
+
+	.main-nav li.has-children.open .menu-arrow {
+		transform: rotate(180deg);
+	}
+}
+
+/* ============================================
+   КНОПКА ГАМБУРГЕРА (скрыта на десктопах)
+   ============================================ */
+.hamburger {
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 30px;
+	height: 22px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	z-index: 1001;
+}
+
+.hamburger span {
+	display: block;
+	width: 100%;
+	height: 3px;
+	background: var(--header-text);
+	border-radius: 2px;
+	transition: all var(--transition-speed) ease;
+	transform-origin: center;
+}
+
+/* Анимация гамбургера в крестик (при открытом меню) */
+.hamburger.active span:nth-child(1) {
+	transform: translateY(9.5px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+	opacity: 0;
+	transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+	transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* ============================================
+   МОБИЛЬНОЕ МЕНЮ (по умолчанию скрыто)
+   ============================================ */
+@media (max-width: 768px) {
+	/* Показываем гамбургер */
+	.hamburger {
+		display: flex;
+	}
+
+	/* Меню скрыто по умолчанию */
+	.main-nav {
+		width: 100%;
+		max-height: 0;
+		overflow: hidden;
+		transition:
+			max-height 0.4s ease,
+			opacity 0.3s ease,
+			margin 0.3s ease;
+		opacity: 0;
+		margin-top: 0;
+	}
+
+	/* Меню открыто */
+	.main-nav.open {
+		max-height: 500px; /* Достаточно для всех пунктов */
+		opacity: 1;
+		margin-top: 10px;
+	}
+
+	.main-nav ul {
+		flex-direction: column;
+		gap: 5px;
+		width: 100%;
+		padding: 10px 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.main-nav ul ul {
+		display: none;
+		position: static;
+		background: rgba(255, 255, 255, 0.05);
+		border: none;
+		border-radius: 0;
+		padding: 0;
+		padding-left: 20px;
+		box-shadow: none;
+	}
+
+	.main-nav ul ul.open {
+		display: block !important;
+	}
+
+	.main-nav ul ul li {
+		width: 100%;
+	}
+
+	.main-nav ul ul a {
+		padding: 8px 16px;
+		font-size: 14px;
+	}
+
+	.main-nav li {
+		position: relative;
+		width: 100%;
+	}
+
+	.main-nav li.has-children > a {
+		padding-right: 40px;
+	}
+
+	.main-nav a {
+		display: block;
+		padding: 10px 15px;
+		border-bottom: none;
+		border-radius: 4px;
+		transition: background var(--transition-speed) ease;
+		font-size: 16px;
+		width: 100%;
+	}
+
+	.main-nav a:hover {
+		background: rgba(255, 255, 255, 0.1);
+		border-bottom-color: transparent;
+		color: var(--header-accent);
+	}
+
+	/* Контейнер на мобильных - чуть меньше отступы */
+	:root {
+		--container-padding: 15px;
+	}
+}
+
+/* ============================================
+   ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (до 480px)
+   ============================================ */
+@media (max-width: 480px) {
+	.logo h1 {
+		font-size: 20px;
+	}
+
+	.hamburger {
+		width: 26px;
+		height: 19px;
+	}
+
+	.hamburger.active span:nth-child(1) {
+		transform: translateY(8px) rotate(45deg);
+	}
+
+	.hamburger.active span:nth-child(3) {
+		transform: translateY(-8px) rotate(-45deg);
+	}
+
+	:root {
+		--container-padding: 12px;
+	}
+}
+
+/* ============================================
+   ОСНОВНОЙ КОНТЕНТ
+   ============================================ */
+.site-main {
+	flex: 1;
+	padding: 40px 0;
+}
+
+/* ============================================
+   ПОДВАЛ
+   ============================================ */
+.site-footer {
+	background: var(--footer-bg);
+	color: var(--footer-text);
+	padding: 20px 0;
+	margin-top: auto;
+	border-top: 1px solid #2a3a5e;
+}
+
+.footer-inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.footer-version {
+	font-size: 12px;
+	opacity: 0.6;
+}
+
+@media (max-width: 480px) {
+	.footer-inner {
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+/* ============================================
+   СТИЛИ ДЛЯ МОДУЛЕЙ
+   ============================================ */
+.module-container {
+	background: var(--color-bg);
+	border-radius: 8px;
+	padding: 30px;
+	margin: 20px 0;
+}
+
+.module-container h2 {
+	color: var(--color-primary);
+	margin-bottom: 20px;
+	font-weight: 600;
+}
+
+/* ============================================
+   УВЕДОМЛЕНИЯ
+   ============================================ */
+.alert {
+	padding: 12px 20px;
+	border-radius: 4px;
+	margin: 10px 0;
+}
+
+.alert-info {
+	background: #d1ecf1;
+	border: 1px solid #bee5eb;
+	color: #0c5460;
+}
+
+.alert-success {
+	background: #d4edda;
+	border: 1px solid #c3e6cb;
+	color: #155724;
+}
+
+.alert-danger {
+	background: #f8d7da;
+	border: 1px solid #f5c6cb;
+	color: #721c24;
+}
+
+.alert-warning {
+	background: #fff3cd;
+	border: 1px solid #ffeeba;
+	color: #856404;
+}
+
+/* ============================================
+   КНОПКИ
+   ============================================ */
+.btn {
+	display: inline-block;
+	padding: 10px 25px;
+	font-family: var(--font-family);
+	font-size: 14px;
+	font-weight: 400;
+	text-align: center;
+	text-decoration: none;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all var(--transition-speed) ease;
+	letter-spacing: 0.5px;
+}
+
+.btn-primary {
+	background: var(--color-primary);
+	color: var(--color-white);
+}
+
+.btn-primary:hover {
+	background: var(--color-primary-light);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 15px rgba(26, 26, 46, 0.3);
+}
+
+.btn-secondary {
+	background: #6c757d;
+	color: var(--color-white);
+}
+
+.btn-secondary:hover {
+	background: #5a6268;
+}
+
+.btn-success {
+	background: #28a745;
+	color: var(--color-white);
+}
+
+.btn-success:hover {
+	background: #218838;
+}
+
+.btn-danger {
+	background: #dc3545;
+	color: var(--color-white);
+}
+
+.btn-danger:hover {
+	background: #c82333;
+}
+
+/* ============================================
+   ФОРМЫ
+   ============================================ */
+.form-group {
+	margin-bottom: 20px;
+}
+
+.form-group label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 5px;
+	color: var(--color-primary);
+}
+
+.form-control {
+	width: 100%;
+	padding: 10px 15px;
+	font-family: var(--font-family);
+	font-size: 15px;
+	border: 2px solid var(--color-border);
+	border-radius: 4px;
+	transition: border-color var(--transition-speed) ease;
+	background: var(--color-white);
+}
+
+.form-control:focus {
+	outline: none;
+	border-color: var(--color-primary);
+	box-shadow: 0 0 0 3px rgba(26, 26, 46, 0.1);
+}
+
+.form-control.error {
+	border-color: #dc3545;
+}
+
+/* ============================================
+   ТАБЛИЦЫ
+   ============================================ */
+.table-responsive {
+	overflow-x: auto;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	background: var(--color-white);
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.table th {
+	background: var(--color-primary);
+	color: var(--color-white);
+	padding: 12px 15px;
+	text-align: left;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.table td {
+	padding: 12px 15px;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.table tr:hover td {
+	background: var(--color-bg);
+}
+
+/* ============================================
+   ПАГИНАЦИЯ
+   ============================================ */
+.pagination {
+	display: flex;
+	justify-content: center;
+	gap: 5px;
+	margin: 20px 0;
+}
+
+.pagination a,
+.pagination span {
+	padding: 8px 14px;
+	border: 1px solid var(--color-border);
+	text-decoration: none;
+	color: var(--color-primary);
+	border-radius: 4px;
+	transition: all var(--transition-speed) ease;
+}
+
+.pagination a:hover {
+	background: var(--color-primary);
+	color: var(--color-white);
+}
+
+.pagination .active {
+	background: var(--color-primary);
+	color: var(--color-white);
+	border-color: var(--color-primary);
+}
+
+/* ============================================
+   АНИМАЦИИ
+   ============================================ */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fade-in {
+	animation: fadeIn 0.3s ease forwards;
+}
+
+/* ============================================
+   RESPONSIVE КОРРЕКТИРОВКИ
+   ============================================ */
+@media (max-width: 768px) {
+	.site-main {
+		padding: 20px 0;
+	}
+
+	.module-container {
+		padding: 15px;
+	}
+
+	.table th,
+	.table td {
+		padding: 8px 10px;
+		font-size: 14px;
+	}
+}
+
+/* ============================================
+   СТИЛИ ДЛЯ МЕНЮ САЙТА (из БД)
+   ============================================ */
+
+.main-nav ul {
+	display: flex;
+	list-style: none;
+	gap: 25px;
+	margin: 0;
+	padding: 0;
+}
+
+.main-nav ul ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	min-width: 200px;
+	background: var(--header-bg);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 4px;
+	padding: 8px 0;
+	flex-direction: column;
+	gap: 0;
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.main-nav li {
+	position: relative;
+}
+
+.main-nav li.has-children > a::after {
+	display: none; /* Убираем старую стрелку, используем .menu-arrow */
+}
+
+.main-nav li:hover > ul {
+	display: flex;
+}
+
+.main-nav ul ul li {
+	width: 100%;
+}
+
+.main-nav ul ul a {
+	display: block;
+	padding: 8px 16px;
+	border-bottom: none !important;
+	font-size: 14px;
+}
+
+.main-nav ul ul a:hover {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+/* Третий уровень (под-подменю) */
+.main-nav ul ul ul {
+	left: 100%;
+	top: 0;
+}
+
+/* ============================================
+   МОБИЛЬНАЯ ВЕРСИЯ МЕНЮ
+   ============================================ */
+@media (max-width: 768px) {
+	.main-nav ul {
+		flex-direction: column;
+		gap: 5px;
+		width: 100%;
+		padding: 10px 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.main-nav ul ul {
+		display: none;
+		position: static;
+		background: rgba(255, 255, 255, 0.05);
+		border: none;
+		border-radius: 0;
+		padding: 0;
+		padding-left: 20px;
+		box-shadow: none;
+	}
+
+	.main-nav ul ul.open {
+		display: block !important;
+	}
+
+	.main-nav ul ul li {
+		width: 100%;
+	}
+
+	.main-nav ul ul a {
+		padding: 8px 16px;
+		font-size: 14px;
+	}
+
+	.main-nav li {
+		position: relative;
+		width: 100%;
+	}
+
+	.main-nav li.has-children > a {
+		padding-right: 40px;
+	}
+
+	.main-nav a {
+		display: block;
+		padding: 10px 15px;
+		border-bottom: none;
+		border-radius: 4px;
+		transition: background var(--transition-speed) ease;
+		font-size: 16px;
+		width: 100%;
+	}
+
+	.main-nav a:hover {
+		background: rgba(255, 255, 255, 0.1);
+		border-bottom-color: transparent;
+		color: var(--header-accent);
+	}
+}
+
+.logo-image {
+	display: block;
+	height: 50px;
+	width: auto;
+	max-width: 200px;
+	object-fit: contain;
+}
